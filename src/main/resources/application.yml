@@ -1,0 +1,16 @@
+## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+database:
+  driverClassName: org.postgresql.Driver
+datasource:
+  password: 3418
+  platrform: postgres
+  url: "jdbc:postgresql://localhost:5432/postgres"
+  username: postgres
+spring:
+  jpa:
+    database: POSTGRESQL
+    properties:
+      hibernate:
+        ddl-auto: create
+        dialect: org.hibernate.dialect.PostgreSQL94Dialect
+        show-sql: true
