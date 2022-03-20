@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class,
@@ -11,8 +13,47 @@ import javax.persistence.*;
 public class SoldBooks {
 
     @Id
-    @GeneratedValue(generator = "gen")
-    @SequenceGenerator(name = "gen", sequenceName = "seller_seq")
+    private int selling_id;
 
+    @Column
+    private int book_id;
 
+    @Column
+    private int books_amount;
+
+    public SoldBooks(){}
+
+    public SoldBooks(int selling_id, int book_id, int books_amount) {
+        this.selling_id = selling_id;
+        this.book_id = book_id;
+        this.books_amount = books_amount;
+    }
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    Set<Books> books = new HashSet<>();
+    Set<Selling> sellings = new HashSet<>();
+
+    public int getSelling_id() {
+        return selling_id;
+    }
+
+    public void setSelling_id(int selling_id) {
+        this.selling_id = selling_id;
+    }
+
+    public int getBook_id() {
+        return book_id;
+    }
+
+    public void setBook_id(int book_id) {
+        this.book_id = book_id;
+    }
+
+    public int getBooks_amount() {
+        return books_amount;
+    }
+
+    public void setBooks_amount(int books_amount) {
+        this.books_amount = books_amount;
+    }
 }

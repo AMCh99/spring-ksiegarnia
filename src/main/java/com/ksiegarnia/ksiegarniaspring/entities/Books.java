@@ -21,16 +21,15 @@ public class Books {
     @Id
     @GeneratedValue(generator = "gen")
     @SequenceGenerator(name = "gen", sequenceName = "seller_seq")
-    @Column
     private int book_id;
 
-    @Column
+    @Column(length = 30)
     private String title;
 
-    @Column
+    @Column(length = 30)
     private String genre;
 
-    @Column
+    @Column(length = 30)
     private String author;
 
     @Column
@@ -50,6 +49,10 @@ public class Books {
         this.price = price;
 
     }
+
+    @ManyToMany(mappedBy = "books", fetch = FetchType.EAGER)
+    @JoinColumn(name = "book_id", referencedColumnName = "book_id")
+    Set<SoldBooks> soldBooks;
 
     public int getBook_id() {
         return book_id;
