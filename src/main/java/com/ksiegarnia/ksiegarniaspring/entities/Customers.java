@@ -65,13 +65,16 @@ public class Customers {
         this.house_nr = house_nr;
         this.post_code = post_code;
     }
-
-    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
+    /*
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
     Set<Refunds> refunds;
     @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
     Set<Selling> sellings;
 
+
+
+     */
 
     public void setName(String name) {
         this.name = name;

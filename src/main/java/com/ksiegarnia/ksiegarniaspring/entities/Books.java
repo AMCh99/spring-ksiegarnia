@@ -49,11 +49,13 @@ public class Books {
         this.price = price;
 
     }
-
-    @ManyToMany(mappedBy = "books", fetch = FetchType.EAGER)
+    /*
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "book_id", referencedColumnName = "book_id")
     Set<SoldBooks> soldBooks;
 
+
+     */
     public int getBook_id() {
         return book_id;
     }

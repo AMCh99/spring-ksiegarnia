@@ -48,9 +48,15 @@ public class Refunds {
         this.returned_money = returned_money;
         this.refund_date = refund_date;
     }
-
+    /*
     @ManyToMany(fetch = FetchType.LAZY)
-    Set<Customers> customer = new HashSet<>();
+    private List<Customers> customersList;
+
+    public List<Customers> getCustomersList() {
+        return customersList;
+    }
+
+     */
 
     public int getRefund_id() {
         return refund_id;

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -28,10 +29,20 @@ public class SoldBooks {
         this.book_id = book_id;
         this.books_amount = books_amount;
     }
-
+    /*
     @ManyToMany(fetch = FetchType.LAZY)
-    Set<Books> books = new HashSet<>();
-    Set<Selling> sellings = new HashSet<>();
+    private List<Books> booksList;
+    private List<Selling> sellingList;
+
+    public List<Books> getBooksList() {
+        return booksList;
+    }
+
+    public List<Selling> getSellingList() {
+        return sellingList;
+    }
+
+     */
 
     public int getSelling_id() {
         return selling_id;

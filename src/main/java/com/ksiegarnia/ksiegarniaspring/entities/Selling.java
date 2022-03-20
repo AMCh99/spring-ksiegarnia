@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -40,14 +41,20 @@ public class Selling {
         this.cost = cost;
         this.sold_date = sold_date;
     }
-
+    /*
     @ManyToMany(fetch = FetchType.LAZY)
-    Set<Customers> customer = new HashSet<>();
+    private List<Customers> customersList;
+
+    public List<Customers> getCustomersList() {
+        return customersList;
+    }
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "selling_id", referencedColumnName = "selling_id")
     Set<SoldBooks> soldBooks = new HashSet<>();
 
+
+     */
 
     public int getSelling_id() {
         return selling_id;
