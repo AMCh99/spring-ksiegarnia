@@ -29,20 +29,17 @@ public class SoldBooks {
         this.book_id = book_id;
         this.books_amount = books_amount;
     }
-    /*
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<Books> booksList;
-    private List<Selling> sellingList;
 
-    public List<Books> getBooksList() {
-        return booksList;
-    }
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    private Set<Selling> sellings = new HashSet<>();
 
-    public List<Selling> getSellingList() {
-        return sellingList;
-    }
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    private Set<Books> books = new HashSet<>();
 
-     */
+
+
+
+    //List<Books> booksList;
 
     public int getSelling_id() {
         return selling_id;

@@ -2,18 +2,15 @@ package com.ksiegarnia.ksiegarniaspring.entities;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class,
-        property="refSelId", scope=Selling.class)
+        property="refSelId", scope= Selling.class)
 public class Selling {
 
     @Id
@@ -41,20 +38,17 @@ public class Selling {
         this.cost = cost;
         this.sold_date = sold_date;
     }
-    /*
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<Customers> customersList;
 
-    public List<Customers> getCustomersList() {
-        return customersList;
-    }
-
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "selling_id", referencedColumnName = "selling_id")
-    Set<SoldBooks> soldBooks = new HashSet<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Customers.customer_id")
+    Customers customers;
 
 
-     */
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "sellings")
+    private List<SoldBooks> soldBooks;
+
+
+
 
     public int getSelling_id() {
         return selling_id;

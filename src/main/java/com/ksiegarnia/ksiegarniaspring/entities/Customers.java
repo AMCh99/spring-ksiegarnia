@@ -3,16 +3,10 @@ package com.ksiegarnia.ksiegarniaspring.entities;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.hibernate.validator.constraints.CreditCardNumber;
-import org.joda.time.DateTime;
-import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
-import java.math.BigDecimal;
-import java.time.ZonedDateTime;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 
@@ -40,41 +34,29 @@ public class Customers {
     @CreditCardNumber
     private int credit_card;
 
-    @Column(length = 20)
-    private String city;
-
-    @Column(length = 20)
-    private String street;
-
     @Column
-    private int house_nr;
+    private int addres_id;
 
-    @Column(length = 6)
-    private String post_code;
 
     public Customers() {
     }
 
-    public Customers(String name, String surname, String email, int credit_card, String city, String street, int house_nr, String post_code) {
+    public Customers(String name, String surname, String email, int credit_card, int addres_id) {
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.credit_card = credit_card;
-        this.city = city;
-        this.street = street;
-        this.house_nr = house_nr;
-        this.post_code = post_code;
+        this.addres_id = addres_id;
+
     }
-    /*
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
-    Set<Refunds> refunds;
-    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
-    Set<Selling> sellings;
 
+    @OneToMany(mappedBy = "customers", cascade = CascadeType.ALL, fetch =FetchType.EAGER)
+    Set<Selling> sellings = new HashSet<>();
 
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name="Customers.addres_id", referencedColumnName = "addres_id")
+    Addresses addresses;
 
-     */
 
     public void setName(String name) {
         this.name = name;
@@ -116,35 +98,11 @@ public class Customers {
         this.credit_card = credit_card;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public int getAddres_id() {
+        return addres_id;
     }
 
-    public String getCity(){
-        return city;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setHouse_nr(int house_nr) {
-        this.house_nr = house_nr;
-    }
-
-    public int getHouse_nr() {
-        return house_nr;
-    }
-
-    public void setPost_code(String post_code) {
-        this.post_code = post_code;
-    }
-
-    public String getPost_code() {
-        return post_code;
+    public void setAddres_id(int addres_id) {
+        this.addres_id = addres_id;
     }
 }

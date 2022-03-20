@@ -49,13 +49,9 @@ public class Books {
         this.price = price;
 
     }
-    /*
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "book_id", referencedColumnName = "book_id")
-    Set<SoldBooks> soldBooks;
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "books")
+    private List<SoldBooks> soldBooks;
 
-
-     */
     public int getBook_id() {
         return book_id;
     }
