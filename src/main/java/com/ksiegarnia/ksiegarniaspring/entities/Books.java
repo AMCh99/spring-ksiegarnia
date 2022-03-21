@@ -20,7 +20,7 @@ public class Books {
 
     @Id
     @GeneratedValue(generator = "gen")
-    @SequenceGenerator(name = "gen", sequenceName = "seller_seq")
+    @SequenceGenerator(name="gen", sequenceName = "author_seq")
     private int book_id;
 
     @Column(length = 30)

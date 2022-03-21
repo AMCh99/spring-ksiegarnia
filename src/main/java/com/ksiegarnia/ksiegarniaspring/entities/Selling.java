@@ -15,7 +15,7 @@ public class Selling {
 
     @Id
     @GeneratedValue(generator = "gen")
-    @SequenceGenerator(name = "gen", sequenceName = "seller_seq")
+    @SequenceGenerator(name="gen", sequenceName = "author_seq")
     private int selling_id;
 
     @Column

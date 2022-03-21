@@ -31,15 +31,11 @@ public class SoldBooks {
     }
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    private Set<Selling> sellings = new HashSet<>();
+    private final Set<Selling> sellings = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Set<Books> books = new HashSet<>();
 
-
-
-
-    //List<Books> booksList;
 
     public int getSelling_id() {
         return selling_id;

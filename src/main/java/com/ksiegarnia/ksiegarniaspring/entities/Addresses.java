@@ -3,26 +3,17 @@ package com.ksiegarnia.ksiegarniaspring.entities;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import org.hibernate.validator.constraints.CreditCardNumber;
-import org.joda.time.DateTime;
-import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import java.math.BigDecimal;
-import java.time.ZonedDateTime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,
-        property="refId", scope=Customers.class)
+        property="refId", scope=Addresses.class)
 public class Addresses {
 
     @Id
     @GeneratedValue(generator = "gen")
-    @SequenceGenerator(name = "gen", sequenceName = "seller_seq")
+    @SequenceGenerator(name="gen", sequenceName = "author_seq")
     private int addres_id;
 
     @Column(length = 20)
@@ -92,3 +83,4 @@ public class Addresses {
         this.post_code = post_code;
     }
 }
+

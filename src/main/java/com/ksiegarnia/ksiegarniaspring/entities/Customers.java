@@ -10,7 +10,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-
 @Entity
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,
         property="refId", scope=Customers.class)
