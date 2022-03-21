@@ -40,11 +40,11 @@ public class Customers {
     public Customers() {
     }
 
-    public Customers(String name, String surname, String email, int credit_card, int addres_id) {
+    public Customers(String name, String surname, int addres_id) {
         this.name = name;
         this.surname = surname;
-        this.email = email;
-        this.credit_card = credit_card;
+        this.email = name + surname + "@spring.com";
+        this.credit_card = ((int)Math.floor(Math.random()*(1000000000-900000000+1)+900000000));
         this.addres_id = addres_id;
 
     }
