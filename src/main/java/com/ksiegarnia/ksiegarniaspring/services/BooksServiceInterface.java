@@ -1,9 +1,13 @@
 package com.ksiegarnia.ksiegarniaspring.services;
 
 import com.ksiegarnia.ksiegarniaspring.entities.Books;
+import org.springframework.stereotype.Service;
+
 import java.util.Optional;
 
+@Service
 public interface BooksServiceInterface {
+
 
     Iterable<Books> listAllBooks();
 

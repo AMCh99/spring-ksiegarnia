@@ -4,9 +4,11 @@ import com.ksiegarnia.ksiegarniaspring.entities.Addresses;
 import com.ksiegarnia.ksiegarniaspring.repositories.AddressesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class AddressesServiceImpl implements AddressesServiceInterface{
 
     @Autowired

@@ -30,7 +30,6 @@ public class Customers {
     private String email;
 
     @Column
-    @CreditCardNumber
     private int credit_card;
 
     @Column
@@ -55,6 +54,8 @@ public class Customers {
     @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="Customers.addres_id", referencedColumnName = "addres_id")
     Addresses addresses;
+
+
 
 
     public void setName(String name) {

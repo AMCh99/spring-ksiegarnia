@@ -4,8 +4,9 @@ import com.ksiegarnia.ksiegarniaspring.entities.Books;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
 
-
+@Repository
 public interface BooksRepository extends CrudRepository<Books, Integer>, PagingAndSortingRepository<Books, Integer>{
 
 

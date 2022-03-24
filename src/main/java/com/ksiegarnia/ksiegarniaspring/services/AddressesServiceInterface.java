@@ -1,8 +1,10 @@
 package com.ksiegarnia.ksiegarniaspring.services;
 
 import com.ksiegarnia.ksiegarniaspring.entities.Addresses;
-import java.util.Optional;
+import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+@Service
 public interface AddressesServiceInterface {
 
     Iterable<Addresses> listAllAddresses();

@@ -5,6 +5,7 @@ import com.ksiegarnia.ksiegarniaspring.entities.Customers;
 
 import java.util.Optional;
 
+
 public interface CustomersServiceInterface {
 
     Iterable<Customers> listAllCustomers();

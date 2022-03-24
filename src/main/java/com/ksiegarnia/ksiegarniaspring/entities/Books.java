@@ -6,16 +6,20 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
+@Table(name = "BOOKS")
 @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class,
         property="refSelId", scope=Books.class)
 public class Books {
 
     @Id
-    @GeneratedValue(generator = "gen")
-    @SequenceGenerator(name="gen", sequenceName = "author_seq")
+    //@GeneratedValue(generator = "gen")
+    //@SequenceGenerator(name="gen", sequenceName = "author_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int book_id;
 
     @Column(length = 30)
@@ -44,8 +48,23 @@ public class Books {
         this.price = price;
 
     }
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "books")
-    private List<SoldBooks> soldBooks;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
+    /*@JoinTable(name = "SoldBooks",
+    joinColumns = {@JoinColumn(name = "Books.book_id")},
+    inverseJoinColumns = {@JoinColumn(name = "SoldBooks.book_id")})
+    Set<SoldBooks> soldBooks = new HashSet<>();*/
+    @JoinColumns({@JoinColumn(name = "Books.book_id", referencedColumnName = "SoldBooks.book_id"),
+    @JoinColumn(name = "Books.book_id", referencedColumnName = "SoldBooks.book_id")})
+    Set<SoldBooks> soldBooks = new HashSet<>();
+
+
+
+
+    //@ManyToMany(fetch = FetchType.LAZY)
+    //List<SoldBooks> soldBooks;
+
+
 
     public int getBook_id() {
         return book_id;

@@ -1,9 +1,11 @@
 package com.ksiegarnia.ksiegarniaspring.services;
 
 import com.ksiegarnia.ksiegarniaspring.entities.Selling;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public interface SellingsServiceInterface {
 
     Iterable<Selling> listAllSellings();

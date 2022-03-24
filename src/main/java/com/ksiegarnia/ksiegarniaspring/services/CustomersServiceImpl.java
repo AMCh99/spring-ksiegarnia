@@ -4,8 +4,10 @@ package com.ksiegarnia.ksiegarniaspring.services;
 import com.ksiegarnia.ksiegarniaspring.entities.Customers;
 import com.ksiegarnia.ksiegarniaspring.repositories.CustomersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Optional;
 
@@ -27,6 +29,7 @@ public class CustomersServiceImpl implements CustomersServiceInterface{
     }
 
     @Override
+    @ResponseBody
     public Customers saveCustomer(Customers customers) {
         return customersRepository.save(customers);
     }

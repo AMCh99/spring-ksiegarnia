@@ -43,6 +43,8 @@ public class Addresses {
     Customers customers;
 
 
+
+
     public int getAddres_id() {
         return addres_id;
     }

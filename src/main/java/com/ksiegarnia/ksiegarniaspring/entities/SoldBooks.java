@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,7 +22,8 @@ public class SoldBooks {
     @Column
     private int books_amount;
 
-    public SoldBooks(){}
+    public SoldBooks(){
+    }
 
     public SoldBooks(int selling_id, int book_id, int books_amount) {
         this.selling_id = selling_id;
@@ -29,11 +31,15 @@ public class SoldBooks {
         this.books_amount = books_amount;
     }
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    private final Set<Selling> sellings = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    private Set<Books> books = new HashSet<>();
+    Set<Selling> sellings = new HashSet<>();
+
+
+    @ManyToMany(mappedBy = "soldBooks")
+    Set<Books> books = new HashSet<>();
+
+
 
 
     public int getSelling_id() {

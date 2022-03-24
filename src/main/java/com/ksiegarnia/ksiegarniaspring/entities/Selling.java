@@ -45,7 +45,9 @@ public class Selling {
 
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "sellings")
-    private List<SoldBooks> soldBooks;
+    List<SoldBooks> soldBooks;
+
+
 
 
 
