@@ -41,6 +41,7 @@ public class IndexControler {
 
         DateTime dateAndTime  = DateTime.now();
 
+
         Books b1 = new Books("Lśnienie", "Horror","Stephen King", 200, new BigDecimal(19.90));
         Books b2 = new Books("Uciekinier", "Horror", "Stephen King", 234,new BigDecimal(22.90));
         Books b3 = new Books("Metro 2033", "Przygoda", "Dmitry Glughovsky",500, new BigDecimal(39.99));

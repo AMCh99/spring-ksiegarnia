@@ -16,7 +16,7 @@ import java.util.Set;
 public class Customers {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customer_id;
 
     @Column(length = 20)

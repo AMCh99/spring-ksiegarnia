@@ -2,6 +2,7 @@ package com.ksiegarnia.ksiegarniaspring.entities;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -11,16 +12,19 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "BOOKS")
+@Table(name = "books", schema = "schema_name")
 @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class,
         property="refSelId", scope=Books.class)
 public class Books {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GenericGenerator(name = "native",strategy = "native")
+    private int book_id;
+
     //@GeneratedValue(generator = "gen")
     //@SequenceGenerator(name="gen", sequenceName = "author_seq")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int book_id;
+    //@GeneratedValue(strategy = GenerationType.AUTO)
 
     @Column(length = 30)
     private String title;

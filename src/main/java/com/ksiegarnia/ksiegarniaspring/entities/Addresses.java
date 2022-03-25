@@ -12,10 +12,10 @@ import javax.persistence.*;
 public class Addresses {
 
     @Id
-    @GeneratedValue(generator = "gen")
-    @SequenceGenerator(name="gen", sequenceName = "author_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int addres_id;
-
+    //@GeneratedValue(generator = "gen")
+    //@SequenceGenerator(name="gen", sequenceName = "author_seq")
     @Column(length = 20)
     private String city;
 

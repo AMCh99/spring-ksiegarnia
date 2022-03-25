@@ -14,10 +14,10 @@ import java.util.List;
 public class Selling {
 
     @Id
-    @GeneratedValue(generator = "gen")
-    @SequenceGenerator(name="gen", sequenceName = "author_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int selling_id;
-
+    //@GeneratedValue(generator = "gen")
+    //@SequenceGenerator(name="gen", sequenceName = "author_seq")
     @Column
     private int customer_id;
 
