@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@Table(name = "soldBooks", schema = "schema_name")
 @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class,
         property="refSelId", scope=SoldBooks.class)
 public class SoldBooks {

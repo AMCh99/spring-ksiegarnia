@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "addresses", schema = "schema_name")
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,
         property="refId", scope=Addresses.class)
 public class Addresses {

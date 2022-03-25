@@ -4,14 +4,18 @@ spring:
     pathmatch:
       matching-strategy: ant_path_matcher
   jpa:
+    database: POSTGRESQL
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.HSQLDialect
-        ddl-auto: update
+        dialect: org.hibernate.dialect.PostgreSQL94Dialect
+        hbm2ddl:
+          auto: create
+        generate-ddl: true
     show-sql: true
   database:
-    driverClassName: org.hsqldb.jdbcDriver
+    driverClassName: org.postgresql.Driver
   datasource:
-    url: jdbc:hsqldb:mem:spring
-    username: sa
-    password:
+    platrform: postgres
+    url: jdbc:postgresql://localhost:5432/postgres?searchpath = schema_name
+    username: postgres
+    password: 3418

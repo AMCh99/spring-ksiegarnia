@@ -9,6 +9,7 @@ import java.time.ZonedDateTime;
 import java.util.List;
 
 @Entity
+@Table(name = "selling", schema = "schema_name")
 @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class,
         property="refSelId", scope= Selling.class)
 public class Selling {

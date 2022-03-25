@@ -11,6 +11,7 @@ import java.util.Set;
 
 
 @Entity
+@Table(name = "customers", schema = "schema_name")
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,
         property="refId", scope=Customers.class)
 public class Customers {
